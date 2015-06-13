@@ -5,9 +5,17 @@
         <servlet-name>ServletAutenticar</servlet-name>
         <servlet-class>com.unitec.weba.ServletAutenticar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletGuardarUsuario</servlet-name>
+        <servlet-class>com.unitec.weba.ServletGuardarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ServletAutenticar</servlet-name>
         <url-pattern>/autenticar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletGuardarUsuario</servlet-name>
+        <url-pattern>/guardar_usuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

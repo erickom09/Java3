@@ -18,7 +18,7 @@ public class DAOUsuario {
     static SessionFactory factory;
     static Session session;
     static Transaction tranza;
-    public static void abrirTodo(){
+     static {
         factory= HibernateUtilidades.getSessionFactory();
         session= factory.openSession();
         tranza= session.beginTransaction();
@@ -33,13 +33,14 @@ public class DAOUsuario {
     }
     //Creamos el insert
     public void guardar(Usuario u)throws Exception{
-        abrirTodo();
+        //abrirTodo();
         session.save(u);
         cerrarTodo();
     }
     //creamos el update
     public void actualizar(Usuario u)throws Exception{
-        
+          session.update(u);
+        cerrarTodo();
     }
     //creamos el buscar todos
     public List<Usuario> buscarTodos()throws Exception{
