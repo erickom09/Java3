@@ -29,6 +29,20 @@ public class ServletAutenticar extends HttpServlet {
        String ip=request.getRemoteAddr();
        Date fecha= Calendar.getInstance().getTime();
        
+       //buscar aquí el usuario cuyo login u password se proporcionaron
+       //una vez buscado verificar su id, supongamos que es 1
+       Usuario u1=new Usuario();
+                   u1.setIdUsuario(1);
+        //despues guarda la sesion con la clase administracion
+                   Administracion a=new Administracion();
+                   a.setFecha(fecha);
+                   a.setIdUsuario(u1);
+                   a.setIp(ip);
+                   DAOAdministracion daoadmon=new DAOAdministracion();
+                   try{
+                       daoadmon.guardar(a);
+                   }catch(Exception ex){
+                   }
        //creamos un model
        Usuario u=new Usuario();
                //Ajustamos su login password
