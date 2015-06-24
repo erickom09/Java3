@@ -7,6 +7,8 @@ package com.unitec.weba;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +26,9 @@ public class ServletAutenticar extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
        String login=request.getParameter("login");
        String password=request.getParameter("password");
+       String ip=request.getRemoteAddr();
+       Date fecha= Calendar.getInstance().getTime();
+       
        //creamos un model
        Usuario u=new Usuario();
                //Ajustamos su login password

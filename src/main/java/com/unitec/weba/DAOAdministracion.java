@@ -5,6 +5,8 @@
  */
 package com.unitec.weba;
 
+
+
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,11 +16,11 @@ import org.hibernate.Transaction;
  *
  * @author T-107
  */
-public class DAOUsuario {
+public class DAOAdministracion{
     static SessionFactory factory;
     static Session session;
     static Transaction tranza;
-    public static void abrirSesion() {
+     public static void abrirSesion(){
         factory= HibernateUtilidades.getSessionFactory();
         session= factory.openSession();
         tranza= session.beginTransaction();
@@ -28,33 +30,30 @@ public class DAOUsuario {
         session.close();
 }
 //sirve para inicializar la secion
-    public DAOUsuario(){
+    public DAOAdministracion(){
         
     }
     //Creamos el insert
-    public void guardar(Usuario u)throws Exception{
+    public void guardar(Administracion u)throws Exception{
         //abrirTodo();
         session.save(u);
         cerrarTodo();
     }
     //creamos el update
-    public void actualizar(Usuario u)throws Exception{
+    public void actualizar(Administracion u)throws Exception{
           session.update(u);
         cerrarTodo();
     }
     //creamos el buscar todos
-    public List<Usuario> buscarTodos()throws Exception{
+    public List<Administracion> buscarTodos()throws Exception{
         return null;
     }
     //Creamos el buscarPorId
-     public Usuario buscarPorId(Integer id)throws Exception{
+     public Administracion buscarPorId(Integer id)throws Exception{
         return null;
     }
      //Creamos el de autenticar
-     public boolean autenticar(Usuario u)throws Exception{
+     public boolean autenticar(Administracion u)throws Exception{
          return false;
      }
 }
-
-    
-
